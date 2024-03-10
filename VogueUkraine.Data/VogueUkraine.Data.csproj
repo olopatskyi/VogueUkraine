@@ -6,7 +6,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-      <Folder Include="Entities\" />
+      <ProjectReference Include="..\VogueUkraine.Framework\VogueUkraine.Framework.csproj" />
     </ItemGroup>
 
 </Project>

@@ -7,9 +7,29 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\VogueUkraine.Data\VogueUkraine.Data.csproj" />
+      <ProjectReference Include="..\VogueUkraine.Framework\VogueUkraine.Framework.csproj" />
+
+
+
+
+
+
+    </ItemGroup>
+
+
+
+
+
+
+
 
 
 </Project>

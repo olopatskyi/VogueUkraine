@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-VogueUkraine.Profile.Worker-79C2AFAC-4CAA-43CA-91BC-8014B3E250EB</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AWSSDK.S3" Version="3.7.305.24" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Settings\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Settings\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Settings\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Settings\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\VogueUkraine.Data\VogueUkraine.Data.csproj" />
+      <ProjectReference Include="..\VogueUkraine.Framework\VogueUkraine.Framework.csproj" />
+    </ItemGroup>
+</Project>
