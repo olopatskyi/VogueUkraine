@@ -1,7 +1,6 @@
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Identity;
 using VogueUkraine.Framework.Contracts;
-using VogueUkraine.Framework.Utilities.Api.Response;
 
 namespace VogueUkraine.Identity.Extensions;
 
