@@ -12,8 +12,16 @@ public class VogueUkraineContext : MongoDbContext
     {
     }
 
-    public IMongoCollection<ContestantUploadImagesTask> UploadImagesTasks { get; set; }
-    
+    public IMongoCollection<ParticipantUploadImagesTask> UploadImagesTasks { get; set; }
+
     public IMongoCollection<DeleteS3FileTask> DeleteS3FilesTasks { get; set; }
-    public IMongoCollection<Contestant> Contestants { get; set; }
+    public IMongoCollection<Participant> Participants { get; set; }
+
+    public IMongoCollection<Contest> Contests { get; set; }
+
+    public IMongoCollection<Vote> Votes { get; set; }
+
+    public IMongoCollection<CreateContestTask> CreateContestTasks { get; set; }
+
+    public IMongoCollection<FinishContestTask> FinishContestTasks { get; set; }
 }

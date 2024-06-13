@@ -7,8 +7,10 @@ using VogueUkraine.Data.Entities.Tasks;
 using VogueUkraine.Framework.Data.MongoDb.DbContext;
 using VogueUkraine.Framework.Extensions.ServiceCollection;
 using VogueUkraine.Profile.Worker.Options;
+using VogueUkraine.Profile.Worker.Queue;
 using VogueUkraine.Profile.Worker.Repositories;
 using VogueUkraine.Profile.Worker.Repositories.Abstractions;
+using VogueUkraine.Profile.Worker.Repositories.Queue;
 using VogueUkraine.Profile.Worker.Services;
 using VogueUkraine.Profile.Worker.Services.Abstractions;
 
@@ -28,7 +30,19 @@ public static class ServiceCollectionExtensions
 
     public static IServiceCollection AddRepositories(this IServiceCollection serviceCollection)
     {
-        serviceCollection.AddSingleton<IContestantRepository, ContestantRepository>();
+        serviceCollection.AddSingleton<CreateContestTaskQueueRepository>();
+        serviceCollection.AddSingleton<FinishContestTaskQueueRepository>();
+        
+        serviceCollection.AddSingleton<IParticipantRepository, ParticipantRepository>();
+        serviceCollection.AddSingleton<IContestRepository, ContestRepository>();
+        serviceCollection.AddSingleton<IVoteRepository, VoteRepository>();
+        
+        return serviceCollection;
+    }
+    
+    public static IServiceCollection AddServices(this IServiceCollection serviceCollection)
+    {
+        serviceCollection.AddSingleton<IFinishContestService, FinishContestService>();
         return serviceCollection;
     }
 
@@ -36,12 +50,20 @@ public static class ServiceCollectionExtensions
         IConfiguration configuration)
     {
         //processor
-        serviceCollection.AddSingleton<ContestantUploadImagesTaskProcessor>();
+        serviceCollection.AddSingleton<ParticipantImagesUploadTaskProcessor>();
         serviceCollection.AddSingleton<DeleteS3FilesTaskProcessor>();
+        serviceCollection.AddSingleton<CreateContestTaskQueueProcessor>();
+        serviceCollection.AddSingleton<FinishContestTaskQueueProcessor>();
 
         //queue
-        serviceCollection.AddQueueService<ContestantUploadImagesTask, ContestantUploadImagesTaskQueueRepository,
-            ContestantUploadImagesTaskQueueService>(configuration, "queues:contestant_upload_images_queue");
+        serviceCollection.AddQueueService<ParticipantUploadImagesTask, ParticipantImagesUploadTaskQueueRepository,
+            ContestantUploadImagesTaskQueueService>(configuration, "queues:participant_images_upload_queue");
+
+        serviceCollection.AddQueueService<CreateContestTask, CreateContestTaskQueueRepository,
+            CreateContestTaskQueueService>(configuration, "queues:create_contest_tasks_queue");
+
+        serviceCollection.AddQueueService<FinishContestTask, FinishContestTaskQueueRepository,
+            FinishContestTaskQueueService>(configuration, "queues:finish_contest_tasks_queue");
 
         serviceCollection.AddQueueService<DeleteS3FileTask, DeleteS3FilesTaskRepository, DeleteS3FilesTaskQueueService>(
             configuration, "queues:delete_s3_files_tasks");

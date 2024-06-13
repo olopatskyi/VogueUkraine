@@ -5,7 +5,7 @@ using VogueUkraine.Profile.Api.Repositories.Abstractions;
 
 namespace VogueUkraine.Profile.Api.Repositories;
 
-public class ContestantUploadImagesTaskRepository : QueueRepository<ContestantUploadImagesTask>, IContestantUploadImagesTaskRepository
+public class ContestantUploadImagesTaskRepository : QueueRepository<ParticipantUploadImagesTask>, IContestantUploadImagesTaskRepository
 {
     public ContestantUploadImagesTaskRepository(VogueUkraineContext context) : base(context.UploadImagesTasks)
     {

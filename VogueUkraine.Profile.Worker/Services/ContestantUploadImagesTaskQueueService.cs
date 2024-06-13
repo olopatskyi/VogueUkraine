@@ -4,17 +4,17 @@ using VogueUkraine.Framework.Services.QueueService.Storage.Interfaces;
 
 namespace VogueUkraine.Profile.Worker.Services;
 
-public class ContestantUploadImagesTaskQueueService : QueueService<ContestantUploadImagesTask>
+public class ContestantUploadImagesTaskQueueService : QueueService<ParticipantUploadImagesTask>
 {
-    private readonly ContestantUploadImagesTaskProcessor _processor;
+    private readonly ParticipantImagesUploadTaskProcessor _processor;
 
-    public ContestantUploadImagesTaskQueueService(IQueueRepository<ContestantUploadImagesTask> queue,
-        ContestantUploadImagesTaskProcessor processor) : base(queue)
+    public ContestantUploadImagesTaskQueueService(IQueueRepository<ParticipantUploadImagesTask> queue,
+        ParticipantImagesUploadTaskProcessor processor) : base(queue)
     {
         _processor = processor;
     }
 
-    protected override Task ProcessElementAsync(ContestantUploadImagesTask element,
+    protected override Task ProcessElementAsync(ParticipantUploadImagesTask element,
         CancellationToken stoppingToken = default)
     {
         return _processor.ProcessAsync(element.Id, stoppingToken);

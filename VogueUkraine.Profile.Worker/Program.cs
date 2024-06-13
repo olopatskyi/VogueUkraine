@@ -1,16 +1,17 @@
-using VogueUkraine.Profile.Worker;
+using System.Reflection;
 using VogueUkraine.Profile.Worker.Extensions;
 
 var builder = Host.CreateApplicationBuilder(args)
     .SetupConfiguration();
 
-builder.Services.AddHostedService<Worker>();
 
 builder.Services
     .AddGeneralDatabase(builder.Configuration)
     .AddRepositories()
+    .AddServices()
     .AddMongoQueues(builder.Configuration)
-    .AddAwsS3Bucket(builder.Configuration);
+    .AddAwsS3Bucket(builder.Configuration)
+    .AddAutoMapper(Assembly.GetExecutingAssembly());
    
 var host = builder.Build();
 host.Run();
