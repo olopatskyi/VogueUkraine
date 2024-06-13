@@ -16,6 +16,6 @@ public interface IContestManager
     Task<ServiceResponse<ValidationResult>> UpdateAsync(UpdateContestModelRequest request,
         CancellationToken cancellationToken);
 
-    Task<ServiceResponse<ValidationResult>> SetWinnerAsync(SetWinnerModelRequest request,
-        CancellationToken cancellationToken);
+    Task<ServiceResponse<ValidationResult>> AddParticipantsAsync(AddParticipantsModelRequest request,
+        CancellationToken cancellationToken = default);
 }

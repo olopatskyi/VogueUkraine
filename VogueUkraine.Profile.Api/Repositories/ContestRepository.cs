@@ -51,4 +51,12 @@ public class ContestRepository : IContestRepository
     {
         return _collection.Find(expression).AnyAsync(cancellationToken);
     }
+
+    public Task AddParticipantsAsync(AddParticipantsModelRequest request, CancellationToken cancellationToken = default)
+    {
+        var filter = Builders<Contest>.Filter.Eq(x => x.Id, request.ContestId);
+        var update = Builders<Contest>.Update.AddToSetEach(x => x.ParticipantsIds, request.Participants);
+
+        return _collection.UpdateOneAsync(filter, update, cancellationToken: cancellationToken);
+    }
 }

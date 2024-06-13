@@ -2,7 +2,7 @@ namespace VogueUkraine.Profile.Api.Models.Requests;
 
 public class AddParticipantsModelRequest
 {
-    public string ContestId { get; set; }
+    internal string ContestId { get; set; }
 
     public bool IncludeAllParticipants { get; set; }
 

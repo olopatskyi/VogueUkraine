@@ -43,11 +43,12 @@ public class ContestController : HttpController
         return ActionResult(response);
     }
 
-    [HttpPut]
-    public async Task<IActionResult> FinishContestAsync(SetWinnerModelRequest request,
+    [HttpPut("{id}/participants")]
+    public async Task<IActionResult> AddParticipantsAsync(string id, AddParticipantsModelRequest request,
         CancellationToken cancellationToken = default)
     {
-        var response = await _contestManager.SetWinnerAsync(request, cancellationToken);
+        request.ContestId = id;
+        var response = await _contestManager.AddParticipantsAsync(request, cancellationToken);
         return ActionResult(response);
     }
 }

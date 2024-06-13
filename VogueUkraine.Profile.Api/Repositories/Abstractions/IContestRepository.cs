@@ -13,4 +13,6 @@ public interface IContestRepository
     Task<GetOneContestModelResponse> GetOneAsync(string id, CancellationToken cancellationToken = default);
 
     Task<bool> AnyAsync(Expression<Func<Contest, bool>> expression, CancellationToken cancellationToken = default);
+
+    Task AddParticipantsAsync(AddParticipantsModelRequest request, CancellationToken cancellationToken = default);
 }

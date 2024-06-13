@@ -45,6 +45,7 @@ public class ContestService : LogicalLayerElement, IContestService
         return Success();
     }
 
+
     public async Task<ServiceResponse<GetOneContestModelResponse, ValidationResult>> GetByIdAsync(
         GetOneContestModelRequest request, CancellationToken cancellationToken)
     {
@@ -64,9 +65,37 @@ public class ContestService : LogicalLayerElement, IContestService
         throw new NotImplementedException();
     }
 
-    public Task<ServiceResponse<ValidationResult>> AddParticipantsAsync(AddParticipantsModelRequest request, CancellationToken cancellationToken = default)
+    public async Task<ServiceResponse<ValidationResult>> AddParticipantsAsync(AddParticipantsModelRequest request,
+        CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var cursor = await _participantRepository.GetCursorAsync(1000, cancellationToken);
+        var participantIds = new List<string>();
+
+        if (request.IncludeAllParticipants)
+        {
+            while (await cursor.MoveNextAsync(cancellationToken))
+            {
+                var batch = cursor.Current;
+                participantIds.AddRange(batch.Select(x => x.Id));
+            }
+
+            await _contestRepository.AddParticipantsAsync(new AddParticipantsModelRequest
+            {
+                ContestId = request.ContestId,
+                Participants = participantIds
+            }, cancellationToken);
+        }
+        else
+        {
+            await _contestRepository.AddParticipantsAsync(new AddParticipantsModelRequest
+            {
+                ContestId = request.ContestId,
+                Participants = request.Participants
+            }, cancellationToken);
+        }
+
+
+        return Success();
     }
 
     private static void PopulateContestParticipants(IEnumerable<ParticipantModel> participantModels,

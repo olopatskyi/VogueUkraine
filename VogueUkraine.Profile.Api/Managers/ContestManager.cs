@@ -56,16 +56,10 @@ public class ContestManager : LogicalLayerElement, IContestManager
         return serviceResponse;
     }
 
-    public async Task<ServiceResponse<ValidationResult>> SetWinnerAsync(SetWinnerModelRequest request,
-        CancellationToken cancellationToken)
+    public async Task<ServiceResponse<ValidationResult>> AddParticipantsAsync(AddParticipantsModelRequest request,
+        CancellationToken cancellationToken = default)
     {
-        var validationResult = await new SetWinnerModelRequestValidator().ValidateAsync(request, cancellationToken);
-        if (!validationResult.IsValid)
-        {
-            return ValidationFailure(validationResult);
-        }
-
-        var serviceResponse = await _contestService.SetWinnerAsync(request, cancellationToken);
+        var serviceResponse = await _contestService.AddParticipantsAsync(request, cancellationToken);
         return serviceResponse;
     }
 }
