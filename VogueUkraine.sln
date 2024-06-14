@@ -7,17 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogueUkraine.Framework", "V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogueUkraine.Data", "VogueUkraine.Data\VogueUkraine.Data.csproj", "{5EDE7F02-24E0-4893-A27B-6D683B7A9918}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogueUkraine.Profile.Api", "VogueUkraine.Profile.Api\VogueUkraine.Profile.Api.csproj", "{7E6CD8B5-5237-44D9-94DD-B6F141B30A0C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogueUkraine.Voting.Worker", "VogueUkraine.Voting.Worker\VogueUkraine.Voting.Worker.csproj", "{BE1185E0-19EA-4EBE-B3AB-6D259C6FD151}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogueUkraine.Management.Api", "VogueUkraine.Management.Api\VogueUkraine.Management.Api.csproj", "{7E6CD8B5-5237-44D9-94DD-B6F141B30A0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogueUkraine.Rating.Worker", "VogueUkraine.Rating.Worker\VogueUkraine.Rating.Worker.csproj", "{F7B71137-5941-49A2-AEB7-06BB3559CCA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogueUkraine.Users.Api", "VogueUkraine.Users.Api\VogueUkraine.Users.Api.csproj", "{2211B615-2771-46F4-A30B-150E9071F55A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogueUkraine.Identity", "VogueUkraine.Identity\VogueUkraine.Identity.csproj", "{0B179A3D-A97D-427C-A14A-D29C8C562509}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogueUkraine.Profile.Worker", "VogueUkraine.Profile.Worker\VogueUkraine.Profile.Worker.csproj", "{2F5C8215-F9B5-42F4-9D37-714568D7AFD7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogueUkraine.Management.Worker", "VogueUkraine.Management.Worker\VogueUkraine.Management.Worker.csproj", "{2F5C8215-F9B5-42F4-9D37-714568D7AFD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,18 +36,10 @@ Global
 		{7E6CD8B5-5237-44D9-94DD-B6F141B30A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E6CD8B5-5237-44D9-94DD-B6F141B30A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E6CD8B5-5237-44D9-94DD-B6F141B30A0C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BE1185E0-19EA-4EBE-B3AB-6D259C6FD151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE1185E0-19EA-4EBE-B3AB-6D259C6FD151}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE1185E0-19EA-4EBE-B3AB-6D259C6FD151}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE1185E0-19EA-4EBE-B3AB-6D259C6FD151}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F7B71137-5941-49A2-AEB7-06BB3559CCA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F7B71137-5941-49A2-AEB7-06BB3559CCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7B71137-5941-49A2-AEB7-06BB3559CCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7B71137-5941-49A2-AEB7-06BB3559CCA8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2211B615-2771-46F4-A30B-150E9071F55A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2211B615-2771-46F4-A30B-150E9071F55A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2211B615-2771-46F4-A30B-150E9071F55A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2211B615-2771-46F4-A30B-150E9071F55A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0B179A3D-A97D-427C-A14A-D29C8C562509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0B179A3D-A97D-427C-A14A-D29C8C562509}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B179A3D-A97D-427C-A14A-D29C8C562509}.Release|Any CPU.ActiveCfg = Release|Any CPU

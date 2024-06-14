@@ -9,4 +9,7 @@ public class FinishContestTask : QueueElementEntity
 {
     [BsonElement("cid")]
     public string ContestId { get; set; }
+    
+    [BsonElement("cn")]
+    public string ContestName { get; set; }
 }

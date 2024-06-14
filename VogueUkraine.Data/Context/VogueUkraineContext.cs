@@ -24,4 +24,10 @@ public class VogueUkraineContext : MongoDbContext
     public IMongoCollection<CreateContestTask> CreateContestTasks { get; set; }
 
     public IMongoCollection<FinishContestTask> FinishContestTasks { get; set; }
+
+    public override async Task MigrateAsync()
+    {
+        var voteIndexesTask = new VoteEntityConfiguration(Votes).GetMigrationTask();
+        await voteIndexesTask;
+    }
 }
